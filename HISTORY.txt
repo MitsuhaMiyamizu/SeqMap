@@ -1,0 +1,123 @@
+1.0.13: Jan 12, 2009
+	- Included <cstring> so that g++ v4.3 can compile. Thank Yu Zhou and Matthias Zytnicki for pointing it out.
+	- Added a simple Makefile
+
+1.0.12: Nov 20, 2008
+	- Fixed the bug that some matches may be missing at the end of a transcript. Thank Philipp Berninger for pointing it out.	
+
+1.0.11: Nov 19, 2008
+	- Fixed the bug that some matches may be missing with /output_alignment
+	- Fixed the bug that outputs wrong trans_coord on reverse strand with /allow_insdel. Thank Robel Kahsay for pointing it out.
+
+1.0.10: Nov 11, 2008
+	- Fixed the bug that outputs 1bp off trans_coord on reverse strand with /allow_insdel. Thank Fuhong He for pointing it out.
+
+1.0.9: Nov 2, 2008
+	- Fixed /cut does not work for regions longer than 31bp bug. Thank Song Liu for pointing it out.
+
+1.0.8: Aug 20, 2008
+	- Added /zero_indexed
+	- /eland:2 by default, added /output_all_matches
+	- /both_strands by default, added /forward_strand
+	- /remove_probes_with_many_targets deprecated
+	- /mismatch_pos deprecated
+	- /match_N by default, added /skip_N
+	- reduced memory usage and improved speed
+	- Detect repeated probes
+	- Target count limit 255 deprecated, now unlimited
+	- refined error/warning messages, and command line options
+	- /match_longer_probes by default
+	- Added /cut, removed /probe_len
+	- Automatically detect probe_len
+	- support stanford FASTA format, and raw DNA sequence file as input
+	- Fixed bugs
+	- Refined documents	
+
+1.0.7: July 11, 2008
+	- Fixed a bug of regular output and /match_longer_probes. Thank Xiangfeng Wang for pointing it out.
+	- Fixed /eland:2 output bug
+	- Improve speed and reduce memory usage
+	- Not duplicate probes by default
+	- /eland:2 by default
+
+1.0.6: July 8, 2008
+	- Fixed a bug of /eland. Thank Xiangfeng Wang for pointing it out.
+
+1.0.5: July 8, 2008
+	- Made /match_N, /match_longer_probes and /match_shorter_probes independent of /eland
+	- performance Slightly improved for /eland
+
+1.0.4: June 28, 2008
+	- Fixed a bug of wrong trans coord in 1.0.3
+
+1.0.3: June 27, 2008
+	- Can handle long probes
+	- Can handle short probes
+	- Can handle N
+	- Fix bug at the end of transcripts
+
+1.0.2: June 19, 2008
+	- Update help
+	- Add Eland output format
+
+1.0.1: February 12, 2008
+	- Write HISTORY.txt file.
+
+1.0.0: February 11, 2008
+	- Put online.
+
+0.1.7: July 28, 2007 to 0.1.76-October 15, 2007
+	- Enable 5 insdels.
+	- Remove probes with many targets, improve speed.
+	- Add fast_index_fraction.
+	- Add mask0_tables, improve speed.
+	- Fix duplicate output bug.
+	- Split longer probes.
+	- Filter probes.
+	- Truncate longer probes.
+	- Output mismatched positions.
+	- Output local alignment in results.
+	- More accurate time estimation.
+	- Add time and memory usage estimation.
+	- Enable 3 insdels.
+	- Add insdel support.
+	- Determine 32 or 64 bit system and choose appropriate algorithms accordingly.
+	- Output in probe order.
+	- Put function to inline, improve speed.
+	- Fix time measure on mac.
+	- Fix available_memory_size on mac.
+	- Search both strands.
+	- Optimize mask_key, probe_search, mismatch, shifting, interpolation_search, etc.
+	- Optimize number of probe lists.
+	- Refine memory usage.	
+	- Test with real data.
+	- Do profiling, improve speed.
+	- Input file error detect.
+	- Deal with one N in the sequence.
+	- Fix memory leak.
+	- Fix bug when mismatch=5.
+
+0.1.0: July 28, 2007
+	- Put source tree into svn.
+
+0.0.7: May 30, 2007
+	- Put main functions to probe_match.h.
+
+0.0.6: May 8, 2007
+	- Implement shift_mask, store_key, sort_probes, interpolation_search, limit_num_part, etc.
+
+0.0.5: May 7, 2007
+	- Reduce memory usage.
+
+0.0.4: March 21, 2007
+	- Use index-filtering algorithm.
+
+0.0.3: March 21, 2007
+	- Use stl hash_map.
+
+0.0.2: March 20, 2007
+	- Enable 5 mismatches
+
+0.0.1: February 27, 2007
+	- Joaat hash and bloom filter based version, 2 mismatches maximum.
+	
