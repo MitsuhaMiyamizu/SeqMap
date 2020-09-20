@@ -86,7 +86,7 @@ void do_statistics(){
 			int top_target = -1;
 			if (top_matches[i].size() > 0) top_target = top_matches[i][0].num_mismatch;
 			bool unique_target = false;
-			if (top_matches[i].size() == 1 || top_matches[i].size() > 1 && (top_matches[i][0].num_mismatch < top_matches[i][1].num_mismatch)) unique_target = true;
+			if (top_matches[i].size() == 1 || (top_matches[i].size() > 1 && (top_matches[i][0].num_mismatch < top_matches[i][1].num_mismatch))) unique_target = true;
 			int* target_counts = match_counts + i * (myprobe_match.num_mismatch + 1);
 			if (eland_version == 1) {
 				file << "\t" << top_target + 1 << "\t";
