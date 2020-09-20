@@ -1,0 +1,22 @@
+name: seqmap
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: ./configure
+    - name: unzip
+      run: unzip seqmap-1.0.13-src.zip && cd seqmap-1.0.13-src
+    - name: make
+      run: g++ -O3 -m64 -o seqmap match.cpp
+#    - name: make check
+#      run: make check
