@@ -18,5 +18,9 @@ jobs:
       run: cd /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src && g++ -O3 -m64 -o seqmap match.cpp
     - name: where am I
       run: pwd
+    - name: prepare probe fasta 
+      run: unzip HG-U133_Plus_2.probe_fasta.zip
+    - name: prepare reference genome
+      run: wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.lncRNA_transcripts.fa.gz" && gzip -d gencode.v35.lncRNA_transcripts.fa.gz
     - name: check binary
-      run: /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src/seqmap
+      run: /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:30000 /output_all_matches
