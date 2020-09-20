@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: compile
-      run: cd /home/runner/work/SeqMap/SeqMap/ && g++ -O3 -m64 -o seqmap match.cpp
+      run: cd /home/runner/work/SeqMap/SeqMap/ && make
     - name: where am I
       run: pwd
     - name: prepare probe fasta 
