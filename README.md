@@ -1,5 +1,6 @@
 # SeqMap
-Mirroring from SeqMap stored at Univ. of Michigan (http://www-personal.umich.edu/~jianghui/seqmap/)
+
+Use CI to test SeqMap 1.0.13 and mirror the source code stored at the Univ. of Michigan for research purposes only. (http://www-personal.umich.edu/~jianghui/seqmap/)
 
 ![SeqMap](https://github.com/MitsuhaMiyamizu/SeqMap/workflows/seqmap/badge.svg)
 # Reason why I do this
