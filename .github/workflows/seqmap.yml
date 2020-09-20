@@ -15,6 +15,6 @@ jobs:
     - name: unzip
       run: unzip seqmap-1.0.13-src.zip
     - name: make
-      run: cd /home/runner/work/SeqMap/seqmap-1.0.13-src && g++ -O3 -m64 -o seqmap match.cpp
+      run: cd /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src && g++ -O3 -m64 -o seqmap match.cpp
     - name: check binary
-      run: /home/runner/work/SeqMap/seqmap-1.0.13-src/seqmap --version
+      run: /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src/seqmap --version
