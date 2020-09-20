@@ -14,8 +14,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    pwd
-    g++ -O3 -m64 -o seqmap match.cpp
+    make
     unzip HG-U133_Plus_2.probe_fasta.zip
     wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
     gzip -d gencode.v35.transcripts.fa.gz
