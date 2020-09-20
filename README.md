@@ -2,7 +2,7 @@
 Mirroring from SeqMap stored at Univ. of Michigan (http://www-personal.umich.edu/~jianghui/seqmap/)
 
 ![SeqMap](https://github.com/MitsuhaMiyamizu/SeqMap/workflows/seqmap/badge.svg)
-# Reason I do this
+# Reason why I do this
 It seems many research articles only used the old version of SeqMap, albeit there's an updated version of it,
 which is 1.0.13, this repository is created not only for the compilation test but also for the binary test.
 
