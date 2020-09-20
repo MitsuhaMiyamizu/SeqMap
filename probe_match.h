@@ -980,7 +980,7 @@ inline bool probe_match::search_key(const int64 key, vector<uint> &indexes){
 			}
 		}
 
-		if (num_mismatch >= 1 && !hash_1bp_mismatch || num_mismatch >= 2) {
+		if ((num_mismatch >= 1 && !hash_1bp_mismatch) || num_mismatch >= 2) {
 			int num_change = hash_1bp_mismatch ? num_mismatch - 1 : num_mismatch;
 			int pos_change[max_mismatch - 1];
 			int char_change[max_mismatch - 1];
