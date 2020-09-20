@@ -23,8 +23,8 @@ jobs:
     - name: prepare reference genome
       run: wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
     - name: uncompress reference genome
-      run: gzip -d gencode.v35.lncRNA_transcripts.fa.gz
+      run: gzip -d gencode.v35.transcripts.fa.gz
     - name: for debug, what files do we have here.
       run: ls -al
     - name: check binary
-      run: /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:30000 /output_all_matches
+      run: /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
