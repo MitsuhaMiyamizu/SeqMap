@@ -21,7 +21,7 @@ jobs:
     - name: prepare probe fasta 
       run: unzip HG-U133_Plus_2.probe_fasta.zip
     - name: prepare reference genome
-      run: wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.lncRNA_transcripts.fa.gz"
+      run: wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
     - name: uncompress reference genome
       run: gzip -d gencode.v35.lncRNA_transcripts.fa.gz
     - name: for debug, what files do we have here.
