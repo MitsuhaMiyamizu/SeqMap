@@ -9,4 +9,5 @@ which is 1.0.13, this repository is created not only for the compilation test bu
 # References:
 
 Jiang, H., Wong, W.H. (2008) SeqMap: Mapping Massive Amount of Oligonucleotides to the Genome, Bioinformatics, 24(20).
+
 Frankish A, et al (2018) GENCODE reference annotation for the human and mouse genomes.
