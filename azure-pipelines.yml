@@ -14,12 +14,11 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    unzip seqmap-1.0.13-src.zip
     pwd
-    cd seqmap-1.0.13-src && g++ -O3 -m64 -o seqmap match.cpp && cd ..
+    g++ -O3 -m64 -o seqmap match.cpp
     unzip HG-U133_Plus_2.probe_fasta.zip
     wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
     gzip -d gencode.v35.transcripts.fa.gz
     ls -al
-    ./seqmap-1.0.13-src/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+    ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
   displayName: 'Run a multi-line script'
