@@ -12,10 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: unzip
-      run: unzip seqmap-1.0.13-src.zip
-    - name: make
-      run: cd /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src && g++ -O3 -m64 -o seqmap match.cpp
+    - name: compile
+      run: cd /home/runner/work/SeqMap/SeqMap/ && g++ -O3 -m64 -o seqmap match.cpp
     - name: where am I
       run: pwd
     - name: prepare probe fasta 
@@ -27,4 +25,4 @@ jobs:
     - name: for debug, what files do we have here.
       run: ls -al
     - name: check binary
-      run: /home/runner/work/SeqMap/SeqMap/seqmap-1.0.13-src/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+      run: /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
