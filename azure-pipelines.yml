@@ -21,5 +21,5 @@ steps:
     wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
     gzip -d gencode.v35.transcripts.fa.gz
     ls -al
-    ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+    ./seqmap-1.0.13-src/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
   displayName: 'Run a multi-line script'
