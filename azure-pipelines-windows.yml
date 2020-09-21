@@ -19,6 +19,7 @@ steps:
     echo See https://aka.ms/yaml
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     cl /EHsc match.cpp /link /out:seqmap.exe
+    cl /EHsc collect_output.cpp /link /out:collect_output.exe
     dir
 - task: ExtractFiles@1
   inputs:
