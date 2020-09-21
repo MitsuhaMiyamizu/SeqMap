@@ -112,7 +112,7 @@ inline bool fasta::read_from_file(const string filename, bool check_sequence){
 		total_len += (int)sequence.length();
 	}
 	ifs.close();
-	if (verbose) printf("%lu sequences read, total length is %d.\n", sequences.size(), total_len);
+	if (verbose) printf("%zu sequences read, total length is %d.\n", sequences.size(), total_len);
 	return true;
 }
 
@@ -136,7 +136,7 @@ inline bool fasta::write_to_file(const string filename) {
 		if (!write_to_file(file, tags[i], sequences[i])) return false;
 		total_len += (int)sequences[i].length();
 	}
-	if (verbose) printf("%lu sequences wrote, total length is %d.\n", sequences.size(), total_len);
+	if (verbose) printf("%zu sequences wrote, total length is %d.\n", sequences.size(), total_len);
 	fclose(file);
 	return true;
 }
@@ -176,7 +176,7 @@ inline bool read_dna_from_file(const string filename, vector<string> &sequences)
 	}
 
 	ifs.close();
-	printf("%lu sequences read, total length is %d.\n", sequences.size(), total_len);
+	printf("%zu sequences read, total length is %d.\n", sequences.size(), total_len);
 	return true;
 }
 
