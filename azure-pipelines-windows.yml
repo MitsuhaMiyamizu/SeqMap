@@ -8,7 +8,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'windows-2019'
 
 steps:
 - script: echo Hello, world!
@@ -17,7 +17,7 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     cl /EHsc match.cpp /link /out:seqmap.exe
     dir
 - task: ExtractFiles@1
@@ -31,6 +31,7 @@ steps:
     destinationFolder: '.'
     cleanDestinationFolder: false
 - script: |
+    dir
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
 
   displayName: 'Run a multi-line script'
