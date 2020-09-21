@@ -10,9 +10,13 @@ Visual Studio 2017: [![Build status](https://ci.appveyor.com/api/projects/status
 # Reason why I do this
 It seems many research articles only used the old version of SeqMap, albeit there's an updated version of it,
 which is 1.0.13, this repository is created not only for the compilation test but also for the binary test.
+21/09/2020 Update: Use Visual Studio 2017 to compile the code and generate binary which supports x64 on Windows.
 
 # References:
 
 Jiang, H., Wong, W.H. (2008) SeqMap: Mapping Massive Amount of Oligonucleotides to the Genome, Bioinformatics, 24(20).
 
 Frankish A, et al (2018) GENCODE reference annotation for the human and mouse genomes.
+
+# To-do
+fix the warnings prompted during the compilation of MSVC.
