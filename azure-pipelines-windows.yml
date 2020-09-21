@@ -22,7 +22,12 @@ steps:
     dir
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: 'gencode.v35.transcripts.fa.gz HG-U133_Plus_2.probe_fasta.zip'
+    archiveFilePatterns: 'HG-U133_Plus_2.probe_fasta.zip'
+    destinationFolder: '.'
+    cleanDestinationFolder: false
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: 'gencode.v35.transcripts.fa.gz'
     destinationFolder: '.'
     cleanDestinationFolder: false
 - script: |
