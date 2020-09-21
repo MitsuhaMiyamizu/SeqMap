@@ -6,7 +6,9 @@ Ubuntu latest: ![SeqMap](https://github.com/MitsuhaMiyamizu/SeqMap/workflows/seq
 
 macOS Catalina 10.15.6: [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/macOS%2010.15.6?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=1&branchName=master)
 
-Windows Server 2019 with Visual Studio 2019: [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/Windows%20Server%202019%20with%20Visual%20Studio%202019?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=2&branchName=master)
+Visual Studio 2017: [![Build status](https://ci.appveyor.com/api/projects/status/da4odbki9ikbn05d/branch/master?svg=true)](https://ci.appveyor.com/project/Kiritoalex/seqmap/branch/master)
+
+Visual Studio 2019: [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/Windows%20Server%202019%20with%20Visual%20Studio%202019?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=2&branchName=master)
 # Reason why I do this
 It seems many research articles only used the old version of SeqMap, albeit there's an updated version of it,
 which is 1.0.13, this repository is created not only for the compilation test but also for the binary test.
@@ -20,4 +22,7 @@ Jiang, H., Wong, W.H. (2008) SeqMap: Mapping Massive Amount of Oligonucleotides 
 Frankish A, et al (2018) GENCODE reference annotation for the human and mouse genomes.
 
 # To-do
-fix the warnings prompted during the compilation of MSVC.
+~~fix the warnings prompted during the compilation of MSVC.~~
+
+***Warning***
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
