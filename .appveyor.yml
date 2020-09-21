@@ -4,11 +4,32 @@ branches:
 version: '{build}'
 platform:
   - x64
-image: Visual Studio 2019
+image: 
+  - Visual Studio 2017
+  - Visual Studio 2019
+environment:
+    VCVAR2017: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
+    VCVAR2019: 'C:\"Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat'
+before_build:
+    - ps: |
+    # ...example script to set the proper flags for vcvarsall ...
+    # syntax: vcvarsall.bat [architecture] [platform_type] [winsdk_version] [-vcvars_ver=vcversion]
+    $Architecture = $env:PLATFORM # simplified, works for x86 and x64
+    if ("$env:APPVEYOR_BUILD_WORKER_IMAGE" -eq "Visual Studio 2017") {
+      $env:VCVARSALL = "`"$env:VCVAR2017`" $Architecture"
+    } else {
+      $env:VCVARSALL = "`"$env:VCVAR2019`" $Architecture"
+    }
+    - call %VCVARSALL%
+
 build_script:
+- cl
+- link
+
+build_script:
+  - cl /EHsc match.cpp /link /out:seqmap.exe
   - bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
   - ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
   - bash -c './seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches'
   - ps: $env:BUILD_NAME="seqmap-$env:APPVEYOR_REPO_TAG_NAME-win-$env:PLATFORM"
