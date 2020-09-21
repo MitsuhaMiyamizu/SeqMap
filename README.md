@@ -10,6 +10,7 @@ Visual Studio 2017: [![Build status](https://ci.appveyor.com/api/projects/status
 # Reason why I do this
 It seems many research articles only used the old version of SeqMap, albeit there's an updated version of it,
 which is 1.0.13, this repository is created not only for the compilation test but also for the binary test.
+
 21/09/2020 Update: Use Visual Studio 2017 to compile the code and generate binary which supports x64 on Windows.
 
 # References:
