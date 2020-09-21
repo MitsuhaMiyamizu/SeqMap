@@ -23,9 +23,8 @@ steps:
     ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
     C:\Program Files\\Git\bin\bash.exe /c 'gzip -d gencode.v35.transcripts.fa.gz'
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
-    ps: $env:BUILD_NAME="seqmap-$env:APPVEYOR_REPO_TAG_NAME-win-$env:PLATFORM"
-    C:\Program Files\\Git\bin\bash.exe -c 'mkdir $BUILD_NAME'
-    C:\Program Files\\Git\bin\bash.exe -c 'cp seqmap.exe results.txt $BUILD_NAME'
-    C:\Program Files\\Git\bin\bash.exe -c '7z a $BUILD_NAME.zip $BUILD_NAME'
+    C:\Program Files\\Git\bin\bash.exe -c 'mkdir seqmap'
+    C:\Program Files\\Git\bin\bash.exe -c 'cp seqmap.exe results.txt seqmap'
+    C:\Program Files\\Git\bin\bash.exe -c '7z a seqmap.zip seqmap'
 
   displayName: 'Run a multi-line script'
