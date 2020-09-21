@@ -5,6 +5,8 @@ Use CI to test SeqMap 1.0.13 and mirror the source code stored at the Univ. of M
 Ubuntu latest: ![SeqMap](https://github.com/MitsuhaMiyamizu/SeqMap/workflows/seqmap/badge.svg)
 
 macOS Catalina 10.15.6: [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/macOS%2010.15.6?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=1&branchName=master)
+
+Visual Studio 2017: [![Build status](https://ci.appveyor.com/api/projects/status/da4odbki9ikbn05d/branch/master?svg=true)](https://ci.appveyor.com/project/Kiritoalex/seqmap/branch/master)
 # Reason why I do this
 It seems many research articles only used the old version of SeqMap, albeit there's an updated version of it,
 which is 1.0.13, this repository is created not only for the compilation test but also for the binary test.
