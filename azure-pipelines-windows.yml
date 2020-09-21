@@ -13,7 +13,7 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-#- powershell: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
+- powershell: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
