@@ -37,7 +37,7 @@ artifacts:
 deploy:
    provider: GitHub
    auth_token:
-      secure: u5MrI/3BCylTlSEF21VCYOZ6JMkPpnVhWqFmpqZXXAcczVozk+CNheTOOjL7juo+
+      secure: WmC0eZCDuT3pjI7SNaZWtj6Bsr+ubsHfYJzSa3iWfvwxRX1orBbeb/Cnz6F1tQee
    artifact: $(BUILD_NAME).zip
    prerelease: true
    force_update: true
