@@ -23,7 +23,7 @@ before_build:
     - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
 
 build_script:
-  - cl /EHsc match.cpp /link /out:seqmap.exe
+  - cl /GS /GL /analyze- /W3 /Gy /Zc:wchar_t /Zi /Gm- /O3 /Zc:inline /fp:precise /D "WIN32" /D "NDEBUG" /errorReport:prompt /WX- /Zc:forScope /Gd /Oy- /Oi /MD /EHsc match.cpp /link /out:seqmap.exe
   - bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
   - ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
   - bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
