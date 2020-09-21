@@ -6,9 +6,9 @@ platform:
   - x64
 image: 
   #- Visual Studio 2017
-  - Visual Studio 2019
-environment:
-    VCVAR2017: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
+  - Visual Studio 2017
+#environment:
+    #VCVAR2017: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
     #VCVAR2019: 'C:\"Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat'
 before_build:
     #- ps: |
@@ -20,7 +20,7 @@ before_build:
     #} else {
     #  $env:VCVARSALL = "`"$env:VCVAR2019`" $Architecture"
     #}
-    - call 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
+    - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
 
 build_script:
   - cl /EHsc match.cpp /link /out:seqmap.exe
