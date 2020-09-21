@@ -8,7 +8,7 @@ image: Visual Studio 2019
 build_script:
   - bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
   - ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
-  - bash -c 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"'
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
   - bash -c './seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches'
   - ps: $env:BUILD_NAME="seqmap-$env:APPVEYOR_REPO_TAG_NAME-win-$env:PLATFORM"
