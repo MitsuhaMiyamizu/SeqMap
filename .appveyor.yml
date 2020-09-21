@@ -24,10 +24,12 @@ before_build:
 
 build_script:
   - cl /EHsc match.cpp /link /out:seqmap.exe
+  - dir
+  - .\seqmap.exe
   - bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
   - ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
   - bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
-  - ./seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /output_all_matches /available_memory:300000
+  - .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /output_all_matches /available_memory:300000
   - ps: $env:BUILD_NAME="seqmap-$env:APPVEYOR_REPO_TAG_NAME-win-$env:PLATFORM"
   - bash -c 'mkdir $BUILD_NAME'
   - bash -c 'cp seqmap.exe results.txt $BUILD_NAME'
