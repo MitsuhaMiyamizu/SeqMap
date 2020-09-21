@@ -5,22 +5,22 @@ version: '{build}'
 platform:
   - x64
 image: 
-  - Visual Studio 2017
+  #- Visual Studio 2017
   - Visual Studio 2019
 environment:
-    VCVAR2017: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
+    #VCVAR2017: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
     VCVAR2019: 'C:\"Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat'
 before_build:
-    - ps: |
+    #- ps: |
     # ...example script to set the proper flags for vcvarsall ...
     # syntax: vcvarsall.bat [architecture] [platform_type] [winsdk_version] [-vcvars_ver=vcversion]
-    $Architecture = $env:PLATFORM # simplified, works for x86 and x64
-    if ("$env:APPVEYOR_BUILD_WORKER_IMAGE" -eq "Visual Studio 2017") {
-      $env:VCVARSALL = "`"$env:VCVAR2017`" $Architecture"
-    } else {
-      $env:VCVARSALL = "`"$env:VCVAR2019`" $Architecture"
-    }
-    - call %VCVARSALL%
+    #$Architecture = $env:PLATFORM # simplified, works for x86 and x64
+    #if ("$env:APPVEYOR_BUILD_WORKER_IMAGE" -eq "Visual Studio 2017") {
+    #  $env:VCVARSALL = "`"$env:VCVAR2017`" $Architecture"
+    #} else {
+    #  $env:VCVARSALL = "`"$env:VCVAR2019`" $Architecture"
+    #}
+    - call 'C:\"Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat'
 
 build_script:
   - cl /EHsc match.cpp /link /out:seqmap.exe
