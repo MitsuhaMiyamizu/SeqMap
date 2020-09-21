@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -19,11 +20,12 @@ steps:
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     cl /EHsc match.cpp /link /out:seqmap.exe
     dir
-    bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
-    bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: 'gencode.v35.transcripts.fa.gz HG-U133_Plus_2.probe_fasta.zip'
+    destinationFolder: '.'
+    cleanDestinationFolder: false
+- script: |
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
-    bash -c 'mkdir seqmap'
-    bash -c 'cp seqmap.exe results.txt seqmap'
-    bash -c '7z a seqmap.zip seqmap'
 
   displayName: 'Run a multi-line script'
