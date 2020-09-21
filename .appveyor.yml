@@ -41,6 +41,7 @@ deploy:
    artifact: $(BUILD_NAME).zip
    prerelease: true
    force_update: true
+   tag: $(APPVEYOR_REPO_TAG_NAME)
    on:
       branch: master
       APPVEYOR_REPO_TAG: true
