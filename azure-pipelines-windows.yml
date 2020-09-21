@@ -19,7 +19,7 @@ steps:
     echo See https://aka.ms/yaml
     dir 'C:\Program Files\'
     dir 'C:\Program Files\Microsoft Visual Studio\2017'
-#    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+#    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 #    cl /EHsc match.cpp /link /out:seqmap.exe
 #    dir
 - task: ExtractFiles@1
