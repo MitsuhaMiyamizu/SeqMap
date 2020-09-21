@@ -13,13 +13,15 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-- powershell: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
+#- powershell: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-    cl /EHsc match.cpp /link /out:seqmap.exe
-    dir
+    dir 'C:\Program Files (x86)\'
+    dir 'C:\Program Files (x86)\Microsoft Visual Studio\2019'
+#    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+#    cl /EHsc match.cpp /link /out:seqmap.exe
+#    dir
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: 'HG-U133_Plus_2.probe_fasta.zip'
