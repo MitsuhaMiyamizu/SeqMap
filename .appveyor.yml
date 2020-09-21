@@ -25,7 +25,6 @@ before_build:
 build_script:
   - cl /EHsc match.cpp /link /out:seqmap.exe
   - dir
-  - .\seqmap.exe
   - bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
   - ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
   - bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
