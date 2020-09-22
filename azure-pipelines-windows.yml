@@ -11,13 +11,7 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'inline'
-    script: from urllib.request import urlretrieve; urlretrieve('ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz', 'gencode.v35.transcripts.fa.gz)')
-
+- powershell: (new-object System.Net.WebClient).DownloadFile('ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz','gencode.v35.transcripts.fa.gz')
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
