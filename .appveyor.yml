@@ -27,7 +27,7 @@ build_script:
   - cl /EHsc collect_output.cpp /link /out:collect_output.exe
   - dir
   - bash -c 'unzip HG-U133_Plus_2.probe_fasta.zip'
-  - ps: Invoke-WebRequest ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz -OutFile "gencode.v35.transcripts.fa.gz"
+  - ps: (new-object System.Net.WebClient).DownloadFile('ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz','gencode.v35.transcripts.fa.gz')
   - bash -c 'gzip -d gencode.v35.transcripts.fa.gz'
   - .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
   - ps: $env:BUILD_NAME="seqmap-$env:APPVEYOR_REPO_TAG_NAME-win-$env:PLATFORM"
