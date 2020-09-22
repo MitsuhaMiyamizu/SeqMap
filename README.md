@@ -7,6 +7,7 @@ Ubuntu latest: ![SeqMap](https://github.com/MitsuhaMiyamizu/SeqMap/workflows/seq
 macOS Catalina 10.15.6: [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/macOS%2010.15.6?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=1&branchName=master)
 
 Visual Studio 2017: [![Build status](https://ci.appveyor.com/api/projects/status/da4odbki9ikbn05d/branch/master?svg=true)](https://ci.appveyor.com/project/Kiritoalex/seqmap/branch/master)
+[![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/Windows%20Server%202016%20with%20Visual%20Studio%202017?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=3&branchName=master)
 
 Visual Studio 2019: [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/Windows%20Server%202019%20with%20Visual%20Studio%202019?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=2&branchName=master)
 # Reason why I do this
