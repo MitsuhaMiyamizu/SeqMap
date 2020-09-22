@@ -42,4 +42,4 @@ steps:
     tagSource: manual
     tag: $(Build.BuildNumber)_MSVC19
     assets: |
-      $(Build.ArtifactStagingDirectory)/*
+      ./*
