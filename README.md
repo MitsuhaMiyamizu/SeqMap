@@ -15,7 +15,7 @@ which is 1.0.13, this repository is created not only for the compilation test bu
 
 ~~21/09/2020 Update: Use Visual Studio 2017 to compile the code and generate binary which supports x64 on Windows.~~
 # Please note:
-g++-compiled binary might behaves the way differently compared with the one compiled with Microsoft Visual C++ compiler. 
+g++-compiled binary might behave the way differently compared with the one compiled with Microsoft Visual C++ compiler. 
 Therefore it's highly experimental for using MSVC compiled seqmap.
 # USE IT AT YOUR OWN RISK, DO NOT USE IT IF YOU HAVEN'T DONE ANY TEST BEFORE.
 
