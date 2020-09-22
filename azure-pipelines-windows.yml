@@ -36,3 +36,12 @@ steps:
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
 
   displayName: 'Run a multi-line script'
+- task: GithubRelease@0
+  displayName: 'Create GitHub Release'
+  inputs:
+    gitHubConnection: pushbinary
+    repositoryName: MitsuhaMiyamizu/SeqMap
+    tagSource: manual
+    tag: $(Build.BuildNumber)
+    assets: |
+      $(Build.ArtifactStagingDirectory)/*
