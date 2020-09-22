@@ -40,6 +40,6 @@ steps:
     gitHubConnection: pushbinary
     repositoryName: MitsuhaMiyamizu/SeqMap
     tagSource: manual
-    tag: $(Build.BuildNumber)
+    tag: $(Build.BuildNumber)_MSVC19
     assets: |
       $(Build.ArtifactStagingDirectory)/*
