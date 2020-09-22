@@ -24,6 +24,7 @@ steps:
     mkdir bin
     mv collect_output ./bin/
     mv seqmap ./bin/
+    mv results.txt ./bin/
   displayName: 'Run a multi-line script'
 - task: ArchiveFiles@2
   inputs:
