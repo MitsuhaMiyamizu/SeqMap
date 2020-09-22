@@ -28,6 +28,6 @@ steps:
     gitHubConnection: pushbinary
     repositoryName: MitsuhaMiyamizu/SeqMap
     tagSource: manual
-    tag: $(Build.BuildNumber)
+    tag: $(Build.BuildNumber)_osx
     assets: |
       $(Build.ArtifactStagingDirectory)/*
