@@ -19,6 +19,10 @@ steps:
     cl /EHsc match.cpp /link /out:seqmap.exe
     cl /EHsc collect_output.cpp /link /out:collect_output.exe
     dir
+    mkdir .\bin
+    cp seqmap.exe .\bin\
+    cp results.txt .\bin\
+    cp collect_output.exe .\bin\
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: 'HG-U133_Plus_2.probe_fasta.zip'
@@ -36,7 +40,7 @@ steps:
   displayName: 'Run a multi-line script'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: './'
+    rootFolderOrFile: './bin'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: './$(Build.BuildId).zip'
