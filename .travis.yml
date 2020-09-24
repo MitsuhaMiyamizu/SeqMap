@@ -13,7 +13,7 @@ addons:
     packages:
 script:
   - wget "${ICCDL}" -q
-  - tar xzvf intel.tar.gz
+  - tar xzf intel.tar.gz
   - export PATH=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/bin/:$PATH
   - export INTEL_LICENSE_FILE=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/
   - icpc --version
