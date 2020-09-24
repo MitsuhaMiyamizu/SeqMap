@@ -12,17 +12,14 @@ addons:
   apt:
     packages:
 script:
-  - pwd
   - wget "${ICCDL}" -q
-  - pwd
   - tar xzvf intel.tar.gz
-  - pwd
-#  - export PATH={$pwd}/intel/bin/:$PATH
-#  - icpc --version
-#  - icpc -O3 -m64 -o seqmap match.cpp
-#  - icpc -O3 -m64 -o collect_output collect_output.cpp
-#  - unzip HG-U133_Plus_2.probe_fasta.zip
-#  - wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
-#  - gzip -d gencode.v35.transcripts.fa.gz
-#  - ls -al
-#  - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:3000 /output_all_matches
+  - export PATH=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/bin/:$PATH
+  - icpc --version
+  - icpc -O3 -m64 -o seqmap match.cpp
+  - icpc -O3 -m64 -o collect_output collect_output.cpp
+  - unzip HG-U133_Plus_2.probe_fasta.zip
+  - wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
+  - gzip -d gencode.v35.transcripts.fa.gz
+  - ls -al
+  - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:3000 /output_all_matches
