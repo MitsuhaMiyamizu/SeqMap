@@ -15,6 +15,7 @@ script:
   - wget "${ICCDL}" -q
   - tar xzvf intel.tar.gz
   - export PATH=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/bin/:$PATH
+  - export INTEL_LICENSE_FILE=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/
   - icpc --version
   - icpc -O3 -m64 -o seqmap match.cpp
   - icpc -O3 -m64 -o collect_output collect_output.cpp
