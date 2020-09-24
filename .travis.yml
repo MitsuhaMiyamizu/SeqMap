@@ -1,0 +1,54 @@
+branches:
+  except:
+    - dev
+language: cpp
+matrix:
+  include:
+    - name: "linux-x64"
+      os: linux
+      dist: bionic
+      env: EXTRA_FLAGS='target_cpu="x64"'
+    - name: "linux-x86"
+      os: linux
+      dist: bionic
+      env: EXTRA_FLAGS='target_cpu="x86"'
+    - name: "linux-arm64"
+      os: linux
+      dist: bionic
+      env: EXTRA_FLAGS='target_cpu="arm64"'
+    - name: "linux-arm"
+      os: linux
+      dist: bionic
+      env: EXTRA_FLAGS='target_cpu="arm"'
+    - name: "osx"
+      os: osx
+      osx_image: xcode11.3
+addons:
+  apt:
+    packages:
+#cache:
+#  directories:
+#    - $HOME/.ccache
+script:
+  - wget -q "$env:ICCDL"
+  - tar xzvf intel.tar.gz
+  - export PATH=~/intel/bin/:$PATH
+  - icpc --version
+  - icpc -O3 -m64 -o seqmap match.cpp
+  - icpc -O3 -m64 -o collect_output collect_output.cpp
+  - unzip HG-U133_Plus_2.probe_fasta.zip
+  - wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
+  - gzip -d gencode.v35.transcripts.fa.gz
+  - ls -al
+  - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure: 
+#  file: $BUILD_NAME.tar.xz
+#  skip_cleanup: true
+#  name: $TRAVIS_BRANCH
+#  prerelease: true
+#  on:
+#    tags: true
+#    all_branches: true
