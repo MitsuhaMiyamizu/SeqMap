@@ -12,7 +12,7 @@ addons:
   apt:
     packages:
 script:
-  - wget "${env:ICCDL}" -q
+  - wget "${ICCDL}" -q
   - tar xzvf intel.tar.gz
   - export PATH=~/intel/bin/:$PATH
   - icpc --version
@@ -22,8 +22,4 @@ script:
   - wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
   - gzip -d gencode.v35.transcripts.fa.gz
   - ls -al
-  - "./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3
-  /available_memory:3000 /output_all_matches"
-env:
-  ICCDL:
-    secure: Qpl9BFvMqFuCaUeevhcABoDJA2BjzTjSgDDUsTtlxI6OR8IiV5074SNjYePcmfksTdCZN4gIKghZEMbmbQawmK6NmHtb4VVTpmqm6k+HFYL+HIiNeWdOD7SYQcuUiiEPTd5tugkiVqewIffaZYCGiq3DKnybDZNka3LwIlo6/oP8DjLC6bDfwAY9FJWKoXVoklJ9Mpa0g3f3RNIb4p8ZbjPLSGN81zPKVDE2YeJ+HtJCq/7mpcwtaDgZKhVZpGQtcqIZ332tpdMB61ZrsW2uEPZyU1bTDb22iOqd1k8l1R4kNZILd7VsR4j/f941bzRUOMt9Nv/0QBy5QcjwPLT+DZqeheIUbQQ/ii2jgKqnB88Va3+Kv9Ak90x+12zE2B/VOJWQykexZ9GpRG+knmmHCJC57wlUrL7ECKsJfwHfq0rc1VWkimqwVNdXS1VTOFgNlBphhaqicu+8C+gn6/NP6RggvVc850XHH/14xD7whZD/bN3yziTVdplnpQSsR4mM7ZVTRffJozDT900183YNHhKtgDyDL48G3CbbL+ejqdByxpTHE/3z9BZ8mZ6CG7AaIYRkbT5HBOfiMvZLN+O4nyk4Bok2sV02CCPivIayg2UU2xPnngynqBJryxNpEynkjSz+ENcivHA2bvrBdlgqxGMEZOovxPMuIK+3HVxJ+xs=
+  - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:3000 /output_all_matches
