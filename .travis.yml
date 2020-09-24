@@ -8,21 +8,6 @@ matrix:
       os: linux
       dist: bionic
       env: EXTRA_FLAGS='target_cpu="x64"'
-    - name: "linux-x86"
-      os: linux
-      dist: bionic
-      env: EXTRA_FLAGS='target_cpu="x86"'
-    - name: "linux-arm64"
-      os: linux
-      dist: bionic
-      env: EXTRA_FLAGS='target_cpu="arm64"'
-    - name: "linux-arm"
-      os: linux
-      dist: bionic
-      env: EXTRA_FLAGS='target_cpu="arm"'
-    - name: "osx"
-      os: osx
-      osx_image: xcode11.3
 addons:
   apt:
     packages:
