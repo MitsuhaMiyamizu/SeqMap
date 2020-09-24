@@ -12,7 +12,7 @@ addons:
   apt:
     packages:
 script:
-  - wget "$env:ICCDL" -q
+  - wget "${env:ICCDL}" -q
   - tar xzvf intel.tar.gz
   - export PATH=~/intel/bin/:$PATH
   - icpc --version
