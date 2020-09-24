@@ -15,7 +15,7 @@ addons:
 #  directories:
 #    - $HOME/.ccache
 script:
-  - wget -q "CcyMOxK4Ri+2zsm51oy/b4F8a8maANUu2fvWK8PzSE1Yf2mWY7sDJQIV8+/4IDqZb773toMTQ2yBSqEkeHNOrRH8NV4fbHGb2uZxvMcTItGSKftLQIXQVU18c95IJ2FykHAQg0sKHsxrT86SYR0k54IXlpXsKnBzWrHHBcd+FWWHBDhzyfU16jLbdwHJGBxpgvXUANZ8JMivT0fKXU8DpyDcNUTigVcWnojBw+qC0oSuGOmtkhyNDFv6pz0rJRmPSSfVu8zpDTMYu0jn75M9lYnxyP8scE9P3EUqQP8p79NVEWmFzDFsUcjyA4jtAMFu8NOx2obcP5q3PqhIXeorwz37Wo3iuSmmuZaGWiXEUfDfvXSbGiYECbO29/yzcpFEtQSMP1e/kVUhjx5CqS0UiSrk4i1X+wIUXyeN1MXKclofKre77dLKzeix9AuwVo7l/3rq9C5PVmC7ftVyGYcZfBAccdqKAhLhaxGRl0YMgHtsdvsYMe2F8syr1klVY9hHmUzgAUGcnOsi/i05h2dlf4uSz+1ff8to0eRiFZKZUjsHQj6sIePuVlq5MQ+ZneWfSKG+Zs4+OdR7+Tmq4FHGVwMyMu4ZvUSS1ImqmzHtE2tgK4XkDl9SBU/b/L/RMw+UyE8QPLD5jKb9NNjoNcV2gkJN1W738pNAY/1PuaO65QE="
+  - wget "$env:ICCDL" -q
   - tar xzvf intel.tar.gz
   - export PATH=~/intel/bin/:$PATH
   - icpc --version
@@ -37,3 +37,6 @@ script:
 #  on:
 #    tags: true
 #    all_branches: true
+env:
+  ICCDL:
+    secure: eZvA+o2MhjclvuhmMJUetyvDD/V5mGELfNWm1gHWnhMllWDDbHIdLmjxZA4ErAQlVa2Hk8/FC5Y4Vt1N2qoeMSr4EcjLzKDIs1jSHf7hQ6beBjF77w5TIfofdEknxIJPFhOhdnbdqxlq6rcEegx/Bsxwoz85KssOD9GI1thIdN3c9a0tr3oup34m2rB9WuCvUrR0LPXSt1/xboJjbsArGPJQvRbvE2LlD7R5bBAoMamzFlylXLVQLb/bvr8XnLh14JT40+k12yg0Gp6j/UShBxey0T/GnocDOuqpNYneZ4IczxGXuET66HRmoX8qUSlShcGMyvPiFGOT08xDk73EMchgEYhB/Qsz3QEhCFj+/Z4JRbTdsBiuOQxXgaanHHkZiXR9zEt0Y0anmUDMbVqiMZaDwCOXxUKza45Cs2hoPGVqiiLeiWVWsn1WPNWw+xVEeXUPl9BsKFN1HZsvFDEd6JM4VVMh8kGgLDZ2eJ89/hWBoHJ4gM8ClSF8lxYQwCg7dyLY68tCxDEEd8iN4mS/isDPhBxcpKt+IrQ1468uOgq44TW8y5n+zfRgWphi0nNRgNt08H6nGhwi4DtMjnldeDKMzC4H4N6L05bUa3aOF8re8bNa5K6JrmRZ4QWDSDS1Jg7etSqdmoHWJaUJkhTbXaKJ1AsRPXDL+QQ4KAvKo6Q=
