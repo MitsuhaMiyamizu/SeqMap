@@ -1,21 +1,18 @@
 branches:
   except:
-    - dev
+  - dev
 language: cpp
 matrix:
   include:
-    - name: "linux-x64"
-      os: linux
-      dist: bionic
-      env: EXTRA_FLAGS='target_cpu="x64"'
+  - name: linux-x64
+    os: linux
+    dist: bionic
+    env: EXTRA_FLAGS='target_cpu="x64"'
 addons:
   apt:
     packages:
-#cache:
-#  directories:
-#    - $HOME/.ccache
 script:
-  - wget "$env:ICCDL" -q
+  - wget $env:ICCDL -q
   - tar xzvf intel.tar.gz
   - export PATH=~/intel/bin/:$PATH
   - icpc --version
@@ -25,18 +22,7 @@ script:
   - wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
   - gzip -d gencode.v35.transcripts.fa.gz
   - ls -al
-  - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
-#deploy:
-#  provider: releases
-#  api_key:
-#    secure: 
-#  file: $BUILD_NAME.tar.xz
-#  skip_cleanup: true
-#  name: $TRAVIS_BRANCH
-#  prerelease: true
-#  on:
-#    tags: true
-#    all_branches: true
+  - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:3000 /output_all_matches
 env:
   ICCDL:
-    secure: eZvA+o2MhjclvuhmMJUetyvDD/V5mGELfNWm1gHWnhMllWDDbHIdLmjxZA4ErAQlVa2Hk8/FC5Y4Vt1N2qoeMSr4EcjLzKDIs1jSHf7hQ6beBjF77w5TIfofdEknxIJPFhOhdnbdqxlq6rcEegx/Bsxwoz85KssOD9GI1thIdN3c9a0tr3oup34m2rB9WuCvUrR0LPXSt1/xboJjbsArGPJQvRbvE2LlD7R5bBAoMamzFlylXLVQLb/bvr8XnLh14JT40+k12yg0Gp6j/UShBxey0T/GnocDOuqpNYneZ4IczxGXuET66HRmoX8qUSlShcGMyvPiFGOT08xDk73EMchgEYhB/Qsz3QEhCFj+/Z4JRbTdsBiuOQxXgaanHHkZiXR9zEt0Y0anmUDMbVqiMZaDwCOXxUKza45Cs2hoPGVqiiLeiWVWsn1WPNWw+xVEeXUPl9BsKFN1HZsvFDEd6JM4VVMh8kGgLDZ2eJ89/hWBoHJ4gM8ClSF8lxYQwCg7dyLY68tCxDEEd8iN4mS/isDPhBxcpKt+IrQ1468uOgq44TW8y5n+zfRgWphi0nNRgNt08H6nGhwi4DtMjnldeDKMzC4H4N6L05bUa3aOF8re8bNa5K6JrmRZ4QWDSDS1Jg7etSqdmoHWJaUJkhTbXaKJ1AsRPXDL+QQ4KAvKo6Q=
+    secure: acFTmR7FDnX8QzCNlm4khoaSaK+/VR5sY4pSKrk2EhHXLH27RokbsiIbDD18rWAOh2BRriNyuvTIQU7MPwoFImdyiRfV3bMbausgwGOPqdjlumcaCTIICWa82o7J8xzJF4b8z++JBAR7y6fJP6LdC5vTkv+iGH1ipG3Il5AuxVogcQywcUdVNbapDRTK76uriobyPcUH4bpkfIr50WQH67De23M9navuib59Wyc4jb89ceEr/q0+60z3Dx2jd23bhnJW1yKOgqSLWPBjE+8o39ZRl1fXxNaRoNtjymWMIkBS+yZu4YERyzZZ/myTvCY2oP0PzuWsOb+M+Oo+PjOnRIOStvmsfZm1835ayTOZ5R8ZqtkopBXE9+UggvSTWCcHtcWKyoDUVuRAAvIHhE+fEgU0A7Zz/sOG0TZvDuct2rbeSMruZGrXEVEdOgzNF1uZmoFQ0GciZ94dAWpRBa9JKEm3RcErVkXLdgdrRQjCaZGgmFUMvdX/1X6rzCOuu7xjTYegTa9ByRY7ChZcYQDhJHFAEQDxC4lRCI2QKrYPrKgomGmpYOQoxfQdR3kF7UtCeMLe61+TCTLSK2eBTsIYi6F6RCFdeL6EcOPiyB6pUMLh1DiqRuVR8lIJvdu2fSn27fpUHAFCdPIucC7GWDBJ7oOx6kZyq3mkYAn+vZstHiA=
