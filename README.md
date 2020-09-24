@@ -8,6 +8,7 @@ Use CI to test SeqMap 1.0.13 and mirror the source code stored at the Univ. of M
 | **macOS Catalina 10.15.6** | GCC | x64 | [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/macOS%2010.15.6?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=1&branchName=master)|
 | **Windows Server 2016** | MSVC17 | x64 | [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/Windows%20Server%202016%20with%20Visual%20Studio%202017?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=3&branchName=master)|[![Build status](https://ci.appveyor.com/api/projects/status/da4odbki9ikbn05d/branch/master?svg=true)](https://ci.appveyor.com/project/Kiritoalex/seqmap/branch/master)|
 | **Windows Server 2019** | MSVC19 | x64 | [![Build Status](https://dev.azure.com/medbioinfo/seqmap/_apis/build/status/Windows%20Server%202019%20with%20Visual%20Studio%202019?branchName=master)](https://dev.azure.com/medbioinfo/seqmap/_build/latest?definitionId=2&branchName=master)|
+| **Ubuntu 18.04.4** | ICC | x64 | [![Build Status](https://travis-ci.com/MitsuhaMiyamizu/SeqMap.svg?branch=master)](https://travis-ci.com/MitsuhaMiyamizu/SeqMap) |
 
 # Reason why I do this
 It seems many research articles only used the old version of SeqMap, albeit there's an updated version of it,
