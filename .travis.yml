@@ -31,7 +31,7 @@ deploy:
   provider: releases
   token: ${api_key}
   skip_cleanup: true
-  file: icc_release.tar.gz
+  file: icc_release.zip
   overwrite: true
   on:
     #tags: true
