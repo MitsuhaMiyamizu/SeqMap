@@ -1,8 +1,8 @@
 branches:
     except:
       - 1.0.13_OSX
-      - 1.0.13_MSVC17
-      - 1.0.13_MSVC19
+      - /[0-9].+[0-9]_MSVC+[0-9]*/
+      - /[0-9].+[0-9]_OSX/
 version: '{build}'
 platform:
   - x64
