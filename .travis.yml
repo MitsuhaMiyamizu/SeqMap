@@ -24,12 +24,12 @@ script:
   - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:3000 /output_all_matches
   - mkdir bin_release
   - mv collect_output seqmap results.txt bin_release/
-  - tar cvf release.tar.gz bin_release/
+  - zip -r icc_release.zip bin_release/
 deploy:
   provider: releases
   token: ${api_key}
   skip_cleanup: true
-  file: release.tar.gz
+  file: icc_release.tar.gz
   overwrite: true
   on:
     #tags: true
