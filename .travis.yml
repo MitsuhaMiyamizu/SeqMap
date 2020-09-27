@@ -2,13 +2,9 @@ branches:
   except:
   - dev
   - /[0-9].+[0-9]_([a-z]|[A-Z])*[0-9]*/
-language: cpp
-matrix:
-  include:
-  - name: linux-x64
-    os: linux
-    dist: bionic
-    env: EXTRA_FLAGS='target_cpu="x64"'
+arch: amd64
+os: linux
+dist: bionic
 addons:
   apt:
     packages:
@@ -17,11 +13,25 @@ script:
   - tar xzf intel.tar.gz
   - export PATH=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/bin/:$PATH
   - export INTEL_LICENSE_FILE=/home/travis/build/MitsuhaMiyamizu/SeqMap/intel/
+  - export CC="icc"
+  - export CXX="icpc"
   - icpc --version
   - icpc -O3 -m64 -o seqmap match.cpp
   - icpc -O3 -m64 -o collect_output collect_output.cpp
   - unzip HG-U133_Plus_2.probe_fasta.zip
   - wget "${REF_GENOME}" -q
   - gzip -d gencode.v35.transcripts.fa.gz
-  - ls -al
   - ./seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:3000 /output_all_matches
+  - mkdir bin_release
+  - mv collect_output seqmap results.txt bin_release/
+  - tar cvf release.tar.gz bin_release/
+deploy:
+  provider: releases
+  token: ${api_key}
+  skip_cleanup: true
+  file: release.tar.gz
+  overwrite: true
+  on:
+    #tags: true
+    all_branches: true
+    repo: MitsuhaMiyamizu/SeqMap
