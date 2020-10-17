@@ -32,7 +32,9 @@ steps:
     destinationFolder: '.'
     cleanDestinationFolder: false
 - script: |
+    dir
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+    echo Done
     dos2unix results.txt
     dir
     cp results.txt .\bin\
