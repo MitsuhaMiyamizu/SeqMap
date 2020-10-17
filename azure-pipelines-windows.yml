@@ -18,7 +18,6 @@ steps:
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     cl /EHa /arch:AVX512 /O2 match.cpp /link /out:seqmap.exe
     cl /EHa /arch:AVX512 /O2 collect_output.cpp /link /out:collect_output.exe
-    dir
     mkdir .\bin
     cp seqmap.exe .\bin\
     cp collect_output.exe .\bin\
@@ -33,8 +32,9 @@ steps:
     destinationFolder: '.'
     cleanDestinationFolder: false
 - script: |
-    dir
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+    dos2unix results.txt
+    dir
     cp results.txt .\bin\
   displayName: 'Run a multi-line script'
 - task: ArchiveFiles@2

@@ -13,12 +13,9 @@ pool:
 steps:
 - powershell: (new-object System.Net.WebClient).DownloadFile('ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz','gencode.v35.transcripts.fa.gz')
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     cl /nologo /EHa /arch:AVX512 /O2 match.cpp /link /out:seqmap.exe
     cl /nologo /EHa /arch:AVX512 /O2 collect_output.cpp /link /out:collect_output.exe
-    dir
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: 'HG-U133_Plus_2.probe_fasta.zip'
@@ -32,6 +29,8 @@ steps:
 - script: |
     dir $(Build.ArtifactStagingDirectory)
     .\seqmap.exe 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+    dos2unix results.txt
+    dir
     mkdir .\bin
     cp seqmap.exe .\bin\
     cp results.txt .\bin\
