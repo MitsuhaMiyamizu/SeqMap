@@ -16,8 +16,8 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-    cl /EHsc match.cpp /link /out:seqmap.exe
-    cl /EHsc collect_output.cpp /link /out:collect_output.exe
+    cl /EHa /arch:AVX512 /O2 match.cpp /link /out:seqmap.exe
+    cl /EHa /arch:AVX512 /O2 collect_output.cpp /link /out:collect_output.exe
     dir
     mkdir .\bin
     cp seqmap.exe .\bin\
