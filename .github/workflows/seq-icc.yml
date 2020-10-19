@@ -1,0 +1,48 @@
+name: seq-icc
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup env
+      uses: actions/checkout@v2
+    - name: Download toolchain
+      env:
+        iccdl: ${{ secrets.ICCDLADDR }}
+        icctar: ${{ secrets.ICCTARBALL }}
+      run: |
+        sudo apt-get -qq install zstd
+        cd /home/runner/work/SeqMap/
+        wget ${iccdl} -q
+        tar -I zstd -xf ${icctar}
+        rm ${icctar}
+    - name: Prepare R Source
+      run: |
+        export PATH=/home/runner/work/SeqMap/intel/bin/:$PATH
+        export INTEL_LICENSE_FILE=/home/runner/work/SeqMap/intel
+        export CC="icc"
+        export CXX="icpc"
+        cd /home/runner/work/SeqMap/SeqMap/
+        icpc --version
+        icpc -qnextgen -flto -Ofast -m64 -o seqmap match.cpp
+        icpc -qnextgen -flto -Ofast -m64 -o collect_output collect_output.cpp
+    - name: Where am I
+      run: pwd
+    - name: Prepare probe fasta 
+      run: unzip HG-U133_Plus_2.probe_fasta.zip
+    - name: Prepare reference genome
+      run: wget "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.transcripts.fa.gz"
+    - name: Decompress reference genome
+      run: gzip -d gencode.v35.transcripts.fa.gz
+    - name: For debug
+      run: ls -al
+    - name: Check binary
+      run: /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
