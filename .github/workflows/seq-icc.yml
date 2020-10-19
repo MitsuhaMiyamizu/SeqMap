@@ -29,12 +29,14 @@ jobs:
         export PATH=/home/runner/work/SeqMap/intel_new/bin/:$PATH
         export INTEL_LICENSE_FILE=/home/runner/work/SeqMap/intel_new/
         source /home/runner/work/SeqMap/intel_new/bin/compilervars.sh intel64
-        export CC="icx"
-        export CXX="icpx"
+        export CC="icc"
+        export CXX="icpc"
+        icc --version
+        icpc --version
         cd /home/runner/work/SeqMap/SeqMap/
-        icpx -help
-        icpx -qnextgen -flto -Ofast -m64 -o seqmap match.cpp
-        icpx -qnextgen -flto -Ofast -m64 -o collect_output collect_output.cpp
+        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -help
+        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -qnextgen -flto -Ofast -m64 -o seqmap match.cpp
+        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -qnextgen -flto -Ofast -m64 -o collect_output collect_output.cpp
     - name: Where am I
       run: pwd
     - name: Prepare probe fasta 
