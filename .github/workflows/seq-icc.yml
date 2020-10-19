@@ -49,4 +49,7 @@ jobs:
     - name: For debug
       run: ls -al
     - name: Check binary
-      run: /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+      run: |
+        export LD_LIBRARY_PATH=/home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/compiler/lib/intel64_lin/
+        ls
+        /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
