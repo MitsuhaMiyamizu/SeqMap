@@ -29,15 +29,16 @@ jobs:
         export PATH=/home/runner/work/SeqMap/intel_new/bin/:$PATH
         export INTEL_LICENSE_FILE=/home/runner/work/SeqMap/intel_new/
         source /home/runner/work/SeqMap/intel_new/bin/compilervars.sh intel64
+        export CC="icx"
+        export CXX="icpx"
+        export LD_LIBRARY_PATH=/home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/compiler/lib/intel64_lin/
+        cd /home/runner/work/SeqMap/SeqMap/
+        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -qnextgen -O3 -m64 -o seqmap match.cpp
+        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -qnextgen -O3 -m64 -o collect_output collect_output.cpp
         export CC="icc"
         export CXX="icpc"
-        export LD_LIBRARY_PATH=/home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/compiler/lib/intel64_lin/
-        icc --version
-        icpc --version
-        cd /home/runner/work/SeqMap/SeqMap/
-        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -help
-        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -qnextgen -flto -Ofast -m64 -o seqmap match.cpp
-        /home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/bin/icpx -qnextgen -flto -Ofast -m64 -o collect_output collect_output.cpp
+        icpc -O3 -m64 -o seqmap_icc match.cpp
+        icpc -O3 -m64 -o co_icc collect_output.cpp
     - name: Where am I
       run: pwd
     - name: Prepare probe fasta 
@@ -52,4 +53,10 @@ jobs:
       run: |
         export LD_LIBRARY_PATH=/home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/compiler/lib/intel64_lin/
         ls
-        /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results.txt /eland:3 /available_memory:300000 /output_all_matches
+        /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results_a.txt /eland:3 /available_memory:300000 /output_all_matches
+        /home/runner/work/SeqMap/SeqMap/seqmap_icc 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results_b.txt /eland:3 /available_memory:300000 /output_all_matches
+        md5sum results_a.txt > a_md5.txt
+        md5sum results_b.txt > b_md5.txt
+        diff a_md5.txt b_md5.txt
+        ls
+        
