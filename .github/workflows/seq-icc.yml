@@ -55,6 +55,7 @@ jobs:
         ls
         /home/runner/work/SeqMap/SeqMap/seqmap 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results_a.txt /eland:3 /available_memory:300000 /output_all_matches
         /home/runner/work/SeqMap/SeqMap/seqmap_icc 0 HG-U133_Plus_2.probe_fasta gencode.v35.transcripts.fa results_b.txt /eland:3 /available_memory:300000 /output_all_matches
+        cd /home/runner/work/SeqMap/SeqMap/
         mkdir icc
         mv results_a.txt results_b.txt seqmap collect_output seqmap_icc co_icc icc/
         tar -I zstd -cf seqmap.tar.zst icc/
@@ -62,7 +63,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: /home/runner/work/SeqMap/seqmap.tar.zst
+        file: /home/runner/work/SeqMap/SeqMap/seqmap.tar.zst
         tag: nextgen
         overwrite: true
         file_glob: true
