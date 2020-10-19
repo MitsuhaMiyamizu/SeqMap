@@ -31,6 +31,7 @@ jobs:
         source /home/runner/work/SeqMap/intel_new/bin/compilervars.sh intel64
         export CC="icc"
         export CXX="icpc"
+        export LD_LIBRARY_PATH=/home/runner/work/SeqMap/intel_new/compilers_and_libraries_2020.3.275/linux/compiler/lib/intel64_lin/
         icc --version
         icpc --version
         cd /home/runner/work/SeqMap/SeqMap/
