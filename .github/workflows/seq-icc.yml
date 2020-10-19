@@ -26,15 +26,15 @@ jobs:
         rm ${icctar}
     - name: Prepare R Source
       run: |
-        export PATH=/home/runner/work/SeqMap/intel/bin/:$PATH
-        export INTEL_LICENSE_FILE=/home/runner/work/SeqMap/intel
-        source /home/runner/work/SeqMap/intel/bin/compilervars.sh intel64
-        export CC="icc"
-        export CXX="icpc"
+        export PATH=/home/runner/work/SeqMap/intel_new/bin/:$PATH
+        export INTEL_LICENSE_FILE=/home/runner/work/SeqMap/intel_new/
+        source /home/runner/work/SeqMap/intel_new/bin/compilervars.sh intel64
+        export CC="icx"
+        export CXX="icpx"
         cd /home/runner/work/SeqMap/SeqMap/
-        icpc --version
-        icpc -qnextgen -flto -Ofast -m64 -o seqmap match.cpp
-        icpc -qnextgen -flto -Ofast -m64 -o collect_output collect_output.cpp
+        icpx -help
+        icpx -qnextgen -flto -Ofast -m64 -o seqmap match.cpp
+        icpx -qnextgen -flto -Ofast -m64 -o collect_output collect_output.cpp
     - name: Where am I
       run: pwd
     - name: Prepare probe fasta 
